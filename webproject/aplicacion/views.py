@@ -8,3 +8,6 @@ def index(request):
 
 def prueba(request):
     return render(request, "paginas/prueba.html")
+
+def peliculas(request):
+    return render(request, "paginas/peliculas.html")
