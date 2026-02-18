@@ -60,3 +60,20 @@ def mascotas(request):
         "listamascotas": listamascotas
     }
     return render(request, "paginas/mascotas.html", informacion)
+
+def colores(request):
+    #Comprobamos si recibimos algo o no...
+    if ('micolor' in request.GET):
+        #La informacion viene mediante GET en la URL
+        colorRecibido = request.GET["micolor"]
+    else:
+        colorRecibido = "Nada de nada!!!"
+    #Ya tenemos un color, que hacemos con él??
+    #Devolvemos el color para dibujarlo
+    informacion = {
+        "color": colorRecibido
+    }
+    return render(request, "paginas/colores.html", informacion)
+
+
+
