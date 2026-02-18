@@ -11,3 +11,9 @@ def prueba(request):
 
 def peliculas(request):
     return render(request, "paginas/peliculas.html")
+
+def futbol(request):
+    informacion = {
+        "equipo": "Real Madrid"
+    }
+    return render(request, "paginas/futbol.html", informacion)
