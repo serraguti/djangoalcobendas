@@ -32,3 +32,31 @@ def nombres(request):
         "listapersonas": listapersonas
     }
     return render(request, "paginas/nombres.html", informacion)
+
+def mascotas(request):
+    listamascotas = [
+        {
+            "nombre": "Wall-e",
+            "raza": "limpiador",
+            "edad": 17
+        },
+        {
+            "nombre": "Eva",
+            "raza": "exploradora",
+            "edad": 16
+        },
+        {
+            "nombre": "Rafiki",
+            "raza": "brujo",
+            "edad": 22
+        },
+        {
+            "nombre": "Olaf",
+            "raza": "nieve",
+            "edad": 12
+        }
+    ]
+    informacion = {
+        "listamascotas": listamascotas
+    }
+    return render(request, "paginas/mascotas.html", informacion)
