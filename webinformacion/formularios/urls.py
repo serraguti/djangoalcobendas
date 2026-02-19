@@ -7,4 +7,5 @@ urlpatterns = [
     path("saludo/", views.saludo, name="saludo"),
     path("sumar/", views.SumarNumeros, name="sumar"),
     path("parimpar/", views.EvaluarNumero, name="parimpar"),
+    path("collatz/", views.Collatz, name="collatz"),
 ]

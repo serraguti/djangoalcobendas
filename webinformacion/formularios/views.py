@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import math
 
 # Create your views here.
 def index(request):
@@ -51,3 +52,26 @@ def EvaluarNumero(request):
         return render(request, "paginas/parimpar.html", informacion)
     else:
         return render(request, "paginas/parimpar.html")
+    
+def Collatz(request):
+    if ('cajanumero' in request.POST):
+        #Tenemos datos
+        #Creamos una lista de numeros
+        listanumeros = []
+        #Leemos el numero de la caja
+        numero = int(request.POST["cajanumero"])
+        while (numero != 1):
+            if (numero % 2 == 0):
+                numero = numero / 2
+            else:
+                numero = numero * 3 + 1
+            numero = math.trunc(numero)
+            listanumeros.append(numero)
+        informacion = {
+            "listanumeros": listanumeros
+        }
+        #Devolvemos la informacion
+        return render(request, "paginas/collatz.html", informacion)
+    else:
+        #sin datos
+        return render(request, "paginas/collatz.html")
