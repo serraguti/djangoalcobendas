@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sumar numeros</h1>
+    <form method="post">
+        {% csrf_token %}
+        Número 1: <input type="number" name="cajanum1" required/><br/>
+        Número 2: <input type="number" name="cajanum2"/><br/>
+        <button>Sumar números</button>
+    </form>
+    <h2>La suma es {{suma}}</h2>
+</body>
+</html>
