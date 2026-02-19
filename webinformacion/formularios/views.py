@@ -34,3 +34,20 @@ def SumarNumeros(request):
     else:
         #No sumamos
         return render(request, "paginas/sumarnumeros.html")
+
+def EvaluarNumero(request):
+    if ('cajanum' in request.POST):
+        #Hacemos cosas
+        numero = int(request.POST["cajanum"])
+        tipo = "Un texto que quiero dibujar en la pagina"
+        if (numero % 2 == 0):
+            tipo = "PAR"
+        else:
+            tipo = "IMPAR"
+        informacion = {
+            "resultado": tipo,
+            "datonumero": numero
+        }
+        return render(request, "paginas/parimpar.html", informacion)
+    else:
+        return render(request, "paginas/parimpar.html")

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pagina Par Impar</h1>
+    <a href="/">Volver a Index</a>
+    <form method="post">
+        {% csrf_token %}
+        Introduzca un número: 
+        <input type="number" name="cajanum"/>
+        <button>Evaluar número</button>
+    </form>
+    {% if resultado %}
+        <h2 style="color:blue">
+            El número {{datonumero}} es {{resultado}}
+        </h2>
+    {%endif%}
+</body>
+</html>
