@@ -9,4 +9,5 @@ urlpatterns = [
     path("parimpar/", views.EvaluarNumero, name="parimpar"),
     path("collatz/", views.Collatz, name="collatz"),
     path("tabla/", views.TablaMultiplicar, name="tabla"),
+    path("deportes/", views.deportes, name="deportes")
 ]

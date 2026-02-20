@@ -81,7 +81,7 @@ def TablaMultiplicar(request):
         numero = int(request.POST['cajanumero'])
         listaDatos = []
         for i in range(1, 11):
-            operacion = f"{numero} * {i}"
+            operacion = f"{numero} * {i}" #5 * 1
             resultado = numero * i
             listaDatos.append(
                 {
@@ -95,3 +95,18 @@ def TablaMultiplicar(request):
         return render(request, "paginas/tabla.html", informacion)
     else:
         return render(request, "paginas/tabla.html")
+
+def deportes(request):
+    listaDeportes = ["Futbol", "Petanca", "Curling", "Dardos", "Parchis", "Rana"]
+    if ('selectdeporte' in request.POST):
+        deporte = request.POST["selectdeporte"]
+        informacion = {
+            "listadeportes": listaDeportes,
+            "deporte": deporte
+        }
+        return render(request, "paginas/deportes.html", informacion)
+    else:
+        informacion = {
+            "listadeportes": listaDeportes
+        }
+        return render(request, "paginas/deportes.html", informacion)
