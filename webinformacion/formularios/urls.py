@@ -10,5 +10,6 @@ urlpatterns = [
     path("collatz/", views.Collatz, name="collatz"),
     path("tabla/", views.TablaMultiplicar, name="tabla"),
     path("deportes/", views.deportes, name="deportes"),
-    path("colores/", views.colores, name="colores")
+    path("colores/", views.colores, name="colores"),
+    path("comics/", views.comics, name="comics")
 ]

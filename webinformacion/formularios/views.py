@@ -143,3 +143,47 @@ def colores(request):
         }
         return render(request, "paginas/colores.html", informacion)
 
+def comics(request):
+    listacomics = [
+        {
+            "index": 0,
+            "titulo": "Spiderman",
+            "imagen": "https://elcoleccionistacomics.com/60266-medium_default/spiderman-de-todd-mcfarlane-vol1-de-6.jpg"
+        },
+        {
+            "index": 1,
+            "titulo": "Spawn",
+            "imagen": "https://m.media-amazon.com/images/I/91hZO1pjAoL._AC_UF1000,1000_QL80_.jpg"
+        },
+        {
+            "index": 2,
+            "titulo": "Wolverine",
+            "imagen": "https://www.kamekame.es/53918-large_default/marvel-omnibus-dinastia-de-x-potencias-de-x-comic.jpg"
+        },
+        {
+            "index": 3,
+            "titulo": "Wolverine",
+            "imagen": "https://www.kamekame.es/53918-large_default/marvel-omnibus-dinastia-de-x-potencias-de-x-comic.jpg"
+        },
+        {
+            "index": 4,
+            "titulo": "Asterix y Obelix",
+            "imagen": "https://comicsbarcelona.com/wp-content/uploads/2015/11/127913-Asterix-2.-La-Hoz-de-Oro.jpg"
+        } 
+               
+              
+    ]
+    if ('selectcomic' in request.POST):
+        indice = int(request.POST["selectcomic"])
+        comic = listacomics[indice]
+        informacion = {
+            "listacomics": listacomics,
+            "comic": comic
+        }
+        return render(request, "paginas/comics.html", informacion)
+    else:
+        informacion = {
+            "listacomics": listacomics
+        }
+        return render(request, "paginas/comics.html", informacion)
+
