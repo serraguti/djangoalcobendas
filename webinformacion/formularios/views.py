@@ -110,3 +110,36 @@ def deportes(request):
             "listadeportes": listaDeportes
         }
         return render(request, "paginas/deportes.html", informacion)
+
+def colores(request):
+    listaColores = [
+        {
+            "nombrecolor": "Rojo",
+            "valor": "red"
+        },
+        {
+            "nombrecolor": "Amarillo",
+            "valor": "yellow"
+        },
+        {
+            "nombrecolor": "Verde",
+            "valor": "lightgreen"
+        },
+        {
+            "nombrecolor": "Azul",
+            "valor": "lightblue"
+        }
+    ]
+    if ('selectcolores' in request.POST):
+        colorSeleccionado = request.POST["selectcolores"]
+        informacion = {
+            "listacolores": listaColores,
+            "color": colorSeleccionado
+        }
+        return render(request, "paginas/colores.html", informacion)
+    else:
+        informacion = {
+            "listacolores": listaColores
+        }
+        return render(request, "paginas/colores.html", informacion)
+
