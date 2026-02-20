@@ -74,3 +74,24 @@ def Collatz(request):
     else:
         #sin datos
         return render(request, "paginas/collatz.html")
+    
+def TablaMultiplicar(request):
+    if ('cajanumero' in request.POST):
+        #Aqui recibimos datos
+        numero = int(request.POST['cajanumero'])
+        listaDatos = []
+        for i in range(1, 11):
+            operacion = f"{numero} * {i}"
+            resultado = numero * i
+            listaDatos.append(
+                {
+                    "operacion": operacion,
+                    "resultado": resultado
+                }
+            )
+        informacion = {
+            "listadatos":listaDatos
+        }
+        return render(request, "paginas/tabla.html", informacion)
+    else:
+        return render(request, "paginas/tabla.html")

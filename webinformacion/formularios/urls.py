@@ -8,4 +8,5 @@ urlpatterns = [
     path("sumar/", views.SumarNumeros, name="sumar"),
     path("parimpar/", views.EvaluarNumero, name="parimpar"),
     path("collatz/", views.Collatz, name="collatz"),
+    path("tabla/", views.TablaMultiplicar, name="tabla"),
 ]
