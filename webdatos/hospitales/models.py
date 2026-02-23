@@ -32,6 +32,24 @@ class ServiceDepartamentos:
         cursor = self.connection.cursor()
         cursor.execute(sql, (id, nombre, loc,))
         self.connection.commit()
-        cursor.close()        
+        cursor.close()  
+        
+    def updateDepartamento(self, id, nombre, localidad):
+        sql = "update DEPT set DNOMBRE=:nom, LOC=:loc where DEPT_NO=:id"
+        cursor = self.connection.cursor()
+        cursor.execute(sql, (nombre, localidad, id,))
+        self.connection.commit()
+        cursor.close()
     
-    
+    #Vamos a crear un metodo para buscar un departamento por su ID
+    def buscarDepartamento(self, id):
+        sql = "select * from DEPT where DEPT_NO=:id"
+        cursor = self.connection.cursor()
+        cursor.execute(sql, (id,))
+        row = cursor.fetchone()
+        dept = Departamento()
+        dept.id = row[0]
+        dept.nombre = row[1]
+        dept.localidad = row[2]
+        cursor.close()
+        return dept

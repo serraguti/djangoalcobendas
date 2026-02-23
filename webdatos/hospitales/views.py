@@ -22,7 +22,27 @@ def insertarDepartamento(request):
         nom = request.POST["cajanombre"]
         loc = request.POST["cajalocalidad"]
         service.insertarDepartamento(id, nom, loc)
-        return render(request, "insertardepartamento.html")
+        lista = service.getDepartamentos()
+        informacion = {
+            "departamentos": lista
+        }
+        return render (request, "departamentos.html", informacion)        
     else:
         return render(request, "insertardepartamento.html")
-    
+
+def updateDepartamento(request):
+    if ('cajaid' in request.POST):
+        service = md.ServiceDepartamentos()
+        id = (int(request.POST["cajaid"]))
+        nom = request.POST["cajanombre"]
+        loc = request.POST["cajalocalidad"]
+        service.updateDepartamento(id, nom, loc)
+        lista = service.getDepartamentos()
+        informacion = {
+            "departamentos": lista
+        }
+        return render (request, "departamentos.html", informacion)
+    else:
+        return render(request, "updatedepartamento.html")
+
+
