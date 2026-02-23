@@ -45,4 +45,26 @@ def updateDepartamento(request):
     else:
         return render(request, "updatedepartamento.html")
 
-
+def buscarDepartamentoForm(request):
+    if ('cajaid' in request.POST):
+        service = md.ServiceDepartamentos()
+        id = int(request.POST["cajaid"])
+        dept = service.buscarDepartamento(id)
+        informacion = {
+            "departamento": dept
+        }
+        return render(request, "buscarform.html", informacion)
+    else:
+        return render(request, "buscarform.html")
+    
+def buscarDepartamentoGet(request):
+    if ('dato' in request.GET):
+        service = md.ServiceDepartamentos()
+        id = int(request.GET["dato"])
+        dept = service.buscarDepartamento(id)
+        informacion = {
+            "departamento": dept
+        }
+        return render (request, "buscarget.html", informacion)
+    else:
+        return render (request, "buscarget.html")

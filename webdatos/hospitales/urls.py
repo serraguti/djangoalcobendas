@@ -6,4 +6,6 @@ urlpatterns = [
     path("departamentos/", views.tabladepartamentos, name="departamentos"),
     path("insertdept/", views.insertarDepartamento, name="insertdept"),
     path("updatedept/", views.updateDepartamento, name="updatedept"),
+    path("buscarform/", views.buscarDepartamentoForm, name="buscarform"),
+    path("buscarget/", views.buscarDepartamentoGet, name="buscarget"),
 ]

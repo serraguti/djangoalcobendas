@@ -7,7 +7,11 @@
 </head>
 <body>
     <a href="/insertdept">Create new</a><br/>
-    <a href="/updatedept">Update departamento</a>
+    <a href="/updatedept">Update departamento</a><br/>
+    <a href="/buscarform">Buscar departamento</a><br/>
+    <a href="/buscarget?dato=10">Buscar departamento 10</a>
+    <br/>
+    <a href="/buscarget?dato=20">Buscar departamento 20</a>
     <h1 style="color:blue">Lista de departamentos</h1>
     <table border="1">
         {% for d in departamentos %}
@@ -15,6 +19,9 @@
                 <td> {{d.id}} </td>
                 <td> {{ d.nombre }} </td>
                 <td> {{ d.localidad }} </td>
+                <td>
+                    <a href="/buscarget?dato={{d.id}}">Detalles</a>
+                </td>
             </tr>
         {% endfor %}
     </table>
