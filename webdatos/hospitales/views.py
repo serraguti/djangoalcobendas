@@ -42,6 +42,15 @@ def updateDepartamento(request):
             "departamentos": lista
         }
         return render (request, "departamentos.html", informacion)
+    elif ('dato' in request.GET):
+        service = md.ServiceDepartamentos()
+        id = int(request.GET["dato"])
+        #buscamos el departamento
+        dept = service.buscarDepartamento(id)
+        informacion = {
+            "departamento": dept
+        }
+        return render(request, "updatedepartamento.html", informacion)
     else:
         return render(request, "updatedepartamento.html")
 
@@ -68,3 +77,14 @@ def buscarDepartamentoGet(request):
         return render (request, "buscarget.html", informacion)
     else:
         return render (request, "buscarget.html")
+    
+def delete(request):
+    if ('dato' in request.GET):
+        service = md.ServiceDepartamentos()
+        id = int(request.GET["GET"])
+        service.deleteDepartamento(id)
+        departamentos = service.getDepartamentos()
+        informacion = {
+            "departamentos": departamentos
+        }
+        return render(request, "departamentos.html", informacion)

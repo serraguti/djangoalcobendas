@@ -53,3 +53,10 @@ class ServiceDepartamentos:
         dept.localidad = row[2]
         cursor.close()
         return dept
+    
+    def deleteDepartamento(self, id):
+        sql = "delete from DEPT where DEPT_NO=:id"
+        cursor = self.connection.cursor()
+        cursor.execute(sql, (id,))
+        self.connection.commit()
+        cursor.close()
