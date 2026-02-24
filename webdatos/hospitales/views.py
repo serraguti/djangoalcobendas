@@ -88,3 +88,18 @@ def delete(request):
             "departamentos": departamentos
         }
         return render(request, "departamentos.html", informacion)
+
+def empleadosDepartamento(request):
+    service = md.ServiceDepartamentos()
+    #Siempre recuperamos los departamentos
+    departamentos = service.getDepartamentos()
+    if ('cajaiddept' in request.POST):
+        iddept = int(request.POST["cajaiddept"])
+        empleados = service.buscarEmpleadosDepartamento(iddept)
+        informacion = {
+            "empleados": empleados, "departamentos": departamentos
+        }
+        return render(request, "empdept.html", informacion)
+    else:
+        informacion = {"departamentos": departamentos}
+        return render(request, "empdept.html", informacion)
