@@ -1,7 +1,6 @@
 from django.shortcuts import render
 #Agregamos la librería de models.py
 from hospitales import models as md
-
 # Create your views here.
 def index(request):
     return render(request, "index.html")
