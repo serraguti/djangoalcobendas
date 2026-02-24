@@ -83,4 +83,17 @@ class ServiceDepartamentos:
         cursor.close()
         return listaEmpleados
     
-    
+    def buscarEmpleadosSalario(self, salario):
+        sql = "select EMP_NO, APELLIDO, OFICIO, SALARIO from EMP where SALARIO>=:sal"
+        cursor = self.connection.cursor()
+        cursor.execute(sql, (salario, ))
+        listaEmpleados = []
+        for row in cursor:
+            emp = Empleado()
+            emp.idEmpleado = row[0]
+            emp.apellido = row[1]
+            emp.oficio = row[2]
+            emp.salario = row[3]
+            listaEmpleados.append(emp)
+        cursor.close()
+        return listaEmpleados
