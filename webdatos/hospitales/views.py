@@ -81,7 +81,7 @@ def buscarDepartamentoGet(request):
 def delete(request):
     if ('dato' in request.GET):
         service = md.ServiceDepartamentos()
-        id = int(request.GET["GET"])
+        id = int(request.GET["dato"])
         service.deleteDepartamento(id)
         departamentos = service.getDepartamentos()
         informacion = {

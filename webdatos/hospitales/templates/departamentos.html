@@ -7,6 +7,7 @@
 </head>
 <body>
     <a href="/insertdept">Create new</a><br/>
+    <a href="/delete?dato=87">Delete 87</a>
     <a href="/updatedept?dato=20">Update departamento</a><br/>
     <a href="/buscarform">Buscar departamento</a><br/>
     <a href="/buscarget?dato=10">Buscar departamento 10</a>
@@ -24,6 +25,9 @@
                 </td>
                 <td>
                     <a href="/updatedept?dato={{d.id}}">Edit</a>
+                </td>
+                <td>
+                    <a href="/delete?dato={{d.id}}">Delete</a>
                 </td>
             </tr>
         {% endfor %}
