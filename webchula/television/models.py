@@ -50,4 +50,14 @@ class ServiceSeries:
             listaPersonajes.append(p)
         cursor.close()
         return listaPersonajes
+    
+    def insertarPersonaje(self, nombre, imagen, idserie):
+        sql = """
+        insert into PERSONAJES values
+        ((select max(IDPERSONAJE) + 1 from PERSONAJES), :nombre, :imagen, :idserie)
+        """
+        cursor = self.connection.cursor()
+        cursor.execute(sql, (nombre, imagen, idserie,))
+        self.connection.commit()
+        cursor.close()
         
